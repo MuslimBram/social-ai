@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -175,6 +176,11 @@ export default function Layout({ children, currentPageName }) {
           </div>
 
           <div className="flex items-center gap-3">
+            <Button asChild size="sm" className="hidden sm:flex bg-indigo-600 hover:bg-indigo-700 h-8 text-xs gap-1.5">
+              <Link to={createPageUrl("PostGenerator")}>
+                <Sparkles className="w-3.5 h-3.5" /> Generate
+              </Link>
+            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-gray-50 transition-colors">
