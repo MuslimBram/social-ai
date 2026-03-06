@@ -54,6 +54,10 @@ import ContentCalendar from './pages/ContentCalendar';
 import Accounts from './pages/Accounts';
 import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
+import PostsManager from './pages/PostsManager';
+import Automation from './pages/Automation';
+import Templates from './pages/Templates';
+import GenerationHistory from './pages/GenerationHistory';
 import __Layout from './Layout.jsx';
 
 
@@ -65,6 +69,10 @@ export const PAGES = {
     "Accounts": Accounts,
     "Analytics": Analytics,
     "Settings": Settings,
+    "PostsManager": PostsManager,
+    "Automation": Automation,
+    "Templates": Templates,
+    "GenerationHistory": GenerationHistory,
 }
 
 export const pagesConfig = {
