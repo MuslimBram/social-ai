@@ -14,7 +14,11 @@ import {
   X,
   LogOut,
   ChevronDown,
-  Zap
+  Zap,
+  FileText,
+  LayoutTemplate,
+  History,
+  Bot
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -26,15 +30,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navItems = [
-  { name: "Dashboard", icon: LayoutDashboard, page: "Dashboard" },
-  { name: "AI Generator", icon: Sparkles, page: "PostGenerator" },
-  { name: "Image Creator", icon: ImagePlus, page: "ImageGenerator" },
-  { name: "Calendar", icon: CalendarDays, page: "ContentCalendar" },
-  { name: "Accounts", icon: Users, page: "Accounts" },
-  { name: "Analytics", icon: BarChart3, page: "Analytics" },
-  { name: "Settings", icon: Settings, page: "Settings" },
+const navGroups = [
+  {
+    label: "Overview",
+    items: [
+      { name: "Dashboard", icon: LayoutDashboard, page: "Dashboard" },
+      { name: "Analytics", icon: BarChart3, page: "Analytics" },
+    ],
+  },
+  {
+    label: "Create",
+    items: [
+      { name: "AI Generator", icon: Sparkles, page: "PostGenerator" },
+      { name: "Image Creator", icon: ImagePlus, page: "ImageGenerator" },
+      { name: "Templates", icon: LayoutTemplate, page: "Templates" },
+      { name: "History", icon: History, page: "GenerationHistory" },
+    ],
+  },
+  {
+    label: "Manage",
+    items: [
+      { name: "Posts", icon: FileText, page: "PostsManager" },
+      { name: "Calendar", icon: CalendarDays, page: "ContentCalendar" },
+      { name: "Automation", icon: Bot, page: "Automation" },
+      { name: "Accounts", icon: Users, page: "Accounts" },
+    ],
+  },
+  {
+    label: "Account",
+    items: [
+      { name: "Settings", icon: Settings, page: "Settings" },
+    ],
+  },
 ];
+
+const navItems = navGroups.flatMap(g => g.items);
 
 export default function Layout({ children, currentPageName }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -89,25 +119,32 @@ export default function Layout({ children, currentPageName }) {
           </button>
         </div>
 
-        <nav className="flex-1 px-3 py-4 space-y-1">
-          {navItems.map((item) => {
-            const isActive = currentPageName === item.page;
-            return (
-              <Link
-                key={item.page}
-                to={createPageUrl(item.page)}
-                onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
-                  ${isActive
-                    ? "bg-white/20 text-white shadow-lg shadow-indigo-900/30"
-                    : "text-indigo-200 hover:bg-white/10 hover:text-white"
-                  }`}
-              >
-                <item.icon className={`w-4.5 h-4.5 ${isActive ? "text-amber-300" : ""}`} />
-                {item.name}
-              </Link>
-            );
-          })}
+        <nav className="flex-1 px-3 py-3 overflow-y-auto space-y-5">
+          {navGroups.map((group) => (
+            <div key={group.label}>
+              <p className="text-[10px] font-semibold text-indigo-400 uppercase tracking-widest px-4 mb-1.5">{group.label}</p>
+              <div className="space-y-0.5">
+                {group.items.map((item) => {
+                  const isActive = currentPageName === item.page;
+                  return (
+                    <Link
+                      key={item.page}
+                      to={createPageUrl(item.page)}
+                      onClick={() => setSidebarOpen(false)}
+                      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
+                        ${isActive
+                          ? "bg-white/20 text-white shadow-lg shadow-indigo-900/30"
+                          : "text-indigo-200 hover:bg-white/10 hover:text-white"
+                        }`}
+                    >
+                      <item.icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-amber-300" : ""}`} />
+                      {item.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </nav>
 
         <div className="p-4 mx-3 mb-4 rounded-xl bg-white/10 backdrop-blur-sm">
