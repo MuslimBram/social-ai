@@ -48,11 +48,23 @@
  * The mainPage value must match a key in the PAGES object exactly.
  */
 import Dashboard from './pages/Dashboard';
+import PostGenerator from './pages/PostGenerator';
+import ImageGenerator from './pages/ImageGenerator';
+import ContentCalendar from './pages/ContentCalendar';
+import Accounts from './pages/Accounts';
+import Analytics from './pages/Analytics';
+import Settings from './pages/Settings';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "Dashboard": Dashboard,
+    "PostGenerator": PostGenerator,
+    "ImageGenerator": ImageGenerator,
+    "ContentCalendar": ContentCalendar,
+    "Accounts": Accounts,
+    "Analytics": Analytics,
+    "Settings": Settings,
 }
 
 export const pagesConfig = {
