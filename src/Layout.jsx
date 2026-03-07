@@ -18,7 +18,8 @@ import {
   FileText,
   LayoutTemplate,
   History,
-  Bot
+  Bot,
+  Target
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -55,6 +56,7 @@ const navGroups = [
       { name: "Calendar", icon: CalendarDays, page: "ContentCalendar" },
       { name: "Automation", icon: Bot, page: "Automation" },
       { name: "Accounts", icon: Users, page: "Accounts" },
+      { name: "Competitors", icon: Target, page: "CompetitorAnalysis" },
     ],
   },
   {
@@ -170,7 +172,7 @@ export default function Layout({ children, currentPageName }) {
             </button>
             <div>
               <h2 className="text-lg font-semibold text-gray-900">
-                {navItems.find(i => i.page === currentPageName)?.name || currentPageName}
+                {navItems.find(i => i.page === currentPageName)?.name || (currentPageName === "CompetitorAnalysis" ? "Competitor Analysis" : currentPageName)}
               </h2>
             </div>
           </div>
