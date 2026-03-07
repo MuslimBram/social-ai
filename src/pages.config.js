@@ -47,32 +47,34 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import Dashboard from './pages/Dashboard';
-import PostGenerator from './pages/PostGenerator';
-import ImageGenerator from './pages/ImageGenerator';
-import ContentCalendar from './pages/ContentCalendar';
 import Accounts from './pages/Accounts';
 import Analytics from './pages/Analytics';
-import Settings from './pages/Settings';
-import PostsManager from './pages/PostsManager';
 import Automation from './pages/Automation';
-import Templates from './pages/Templates';
+import ContentCalendar from './pages/ContentCalendar';
+import Dashboard from './pages/Dashboard';
 import GenerationHistory from './pages/GenerationHistory';
+import ImageGenerator from './pages/ImageGenerator';
+import PostGenerator from './pages/PostGenerator';
+import PostsManager from './pages/PostsManager';
+import Settings from './pages/Settings';
+import Templates from './pages/Templates';
+import CompetitorAnalysis from './pages/CompetitorAnalysis';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Dashboard": Dashboard,
-    "PostGenerator": PostGenerator,
-    "ImageGenerator": ImageGenerator,
-    "ContentCalendar": ContentCalendar,
     "Accounts": Accounts,
     "Analytics": Analytics,
-    "Settings": Settings,
-    "PostsManager": PostsManager,
     "Automation": Automation,
-    "Templates": Templates,
+    "ContentCalendar": ContentCalendar,
+    "Dashboard": Dashboard,
     "GenerationHistory": GenerationHistory,
+    "ImageGenerator": ImageGenerator,
+    "PostGenerator": PostGenerator,
+    "PostsManager": PostsManager,
+    "Settings": Settings,
+    "Templates": Templates,
+    "CompetitorAnalysis": CompetitorAnalysis,
 }
 
 export const pagesConfig = {
