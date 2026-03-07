@@ -50,6 +50,7 @@
 import Accounts from './pages/Accounts';
 import Analytics from './pages/Analytics';
 import Automation from './pages/Automation';
+import CompetitorAnalysis from './pages/CompetitorAnalysis';
 import ContentCalendar from './pages/ContentCalendar';
 import Dashboard from './pages/Dashboard';
 import GenerationHistory from './pages/GenerationHistory';
@@ -58,7 +59,6 @@ import PostGenerator from './pages/PostGenerator';
 import PostsManager from './pages/PostsManager';
 import Settings from './pages/Settings';
 import Templates from './pages/Templates';
-import CompetitorAnalysis from './pages/CompetitorAnalysis';
 import __Layout from './Layout.jsx';
 
 
@@ -66,6 +66,7 @@ export const PAGES = {
     "Accounts": Accounts,
     "Analytics": Analytics,
     "Automation": Automation,
+    "CompetitorAnalysis": CompetitorAnalysis,
     "ContentCalendar": ContentCalendar,
     "Dashboard": Dashboard,
     "GenerationHistory": GenerationHistory,
@@ -74,7 +75,6 @@ export const PAGES = {
     "PostsManager": PostsManager,
     "Settings": Settings,
     "Templates": Templates,
-    "CompetitorAnalysis": CompetitorAnalysis,
 }
 
 export const pagesConfig = {
